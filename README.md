@@ -1,2 +1,2 @@
 # bggn213
-bioinformatics class at UCSD
+bioinformatics class at UC San Diego Fall 2021
