@@ -1,0 +1,81 @@
+---
+title: "class 11"
+author: 'Onyeka (PID: A59011964)'
+date: "11/3/2021"
+output:
+  #pdf_document: default
+  github_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+#The PDB database it is 50 years old this
+
+```{r}
+db <- read.csv("data export summary.csv", row.names = 1)
+```
+
+Q1. percentage
+
+```{r}
+summary("data export summary.csv")
+```
+
+```{r}
+round((sum(db$X.ray) / sum(db$Total)) * 100, 2)
+```
+
+```{r}
+colSums(db) / sum(db$Total)
+```
+
+    Q2
+
+```{r}
+ round((db$Total[1]/sum(db$Total)) * 100,2)
+```
+
+![](myVDm3.png)
+
+#using BIO3D in R for structural bionformatics
+
+```{r}
+library(bio3d)
+pdb <- read.pdb("1hsg")
+```
+
+do a normal mode analysis (NMA)
+
+```{r}
+pdb <- read.pdb("1hel")
+m <- nma(pdb)
+plot(m)
+```
+
+MAKE A LITTLE MOVIE
+
+```{r}
+mktrj(m, file="nma.pdb")
+```
